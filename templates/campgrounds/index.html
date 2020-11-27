@@ -1,0 +1,72 @@
+
+{% extends "partials/header.html" %}
+{% load static %}
+{% block content %}
+
+
+<header class="jumbotron" style="background-image: linear-gradient(to bottom right, rgb(233, 187, 135), rgb(174, 207, 202));">
+         <div class="container">
+             <h1><span class="glyphicon glyphicon-globe "></span> Welcome To The Indian Utopia!</h1>
+          
+            
+            {% if  doi == 1 %}
+             <p>
+                <a class="btn btn-primary btn-lg" href="add">Add New Blog</a>
+             </p>
+
+
+             {% endif %}
+         </div>
+     </header>
+     <style>
+        .thumbnail:hover {
+            position:relative;
+            top:-25px;
+            left:-35px;
+            width:500px;
+            height:auto;
+            display:block;
+            z-index:999;
+        }
+
+     </style>
+     <div class="row text-center" style="display:flex; flex-wrap: wrap;">
+        {% for campground in campgrounds %}
+            <div class="col-md-4 col-sm-6" >
+                <div class="thumbnail" >
+                  <img  class="thumbnail"   src= {{campground.imgurl}}>
+                   <div class="caption">
+                       <h4> {{ campground.title }} </h4>
+                   </div>
+                   <p>
+
+                       <form action="campgroundopen" method="get">
+        
+                        <input type="submit" class="btn btn-primary"  value="See more about it" >
+                           <input type="hidden"  class="btn btn-primary"  value="{{campground.id}}" id="name" name="ids"  >
+                                               </form>
+<br>
+
+
+                                               {% if  doi == 1 %}
+                                               
+                                               
+                       <form action="deletepost" method="post">
+                        {% csrf_token %}
+                
+        
+                        <input type="submit" class="btn btn-primary"  value="delete" >
+                           <input type="hidden" value="{{campground.id}}" id="name" name="ids"  >
+                                 
+                                  </form>
+                                  
+                                               {% endif %}
+
+                                               
+                   </p>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+{% endblock content %}

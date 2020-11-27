@@ -1,0 +1,28 @@
+{% extends "partials/header.html" %}
+{% block content %}
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="stylesheets/landing.css">
+<div class="container">
+	
+					
+ <h1>The Indian Utopia</h1>
+
+
+	<a href="campgrounds-index" class="btn btn-default btn-lg"><i class="fa fa-tree"></i> Get Started!</a>
+</div>
+			
+<div class="container"> 
+	<h3>
+
+		{% for i in desc %} 
+		{{ i }}
+		<br>
+
+		{% endfor %}
+		
+	</h3>
+
+</div>
+ <script src="scripts/background.js"></script>
+
+{% endblock content %}

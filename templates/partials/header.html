@@ -1,0 +1,105 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>The Indian Utopia</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/stylesheets/main.css">
+        <script src="https://code.jquery.com/jquery-git2.min.js"></script>
+        <link rel = "icon" href = {{ icon }} 
+                type = "image/x-icon"> 
+<style>
+
+    html {
+        padding: 0;
+        margin: 0;
+      }
+      
+    
+      
+    body {
+      
+        min-height: 100%;
+        padding: 0;
+        margin: 0;
+        background-attachment: fixed;
+        background-position: center; /* Center the image */
+        background-repeat: no-repeat; /* Do not repeat the image */
+        background-size: cover; /* Resize the background image to cover the entire container */
+          };
+</style>
+    </head>
+    <style>
+        .thumbnail2:hover {
+            position:relative;
+            width : 70px ; 
+            height : 70px  ;
+
+        }
+
+    </style>
+    <body style="background-image: url({{ background }});" >
+        <nav id="mainNavbar" class="navbar navbar-expand-lg navbar-light" style="background-color : rgb(20, 74, 173) ">
+            <div style="opacity:0" > .sddsafsdas </div> 
+
+            <div class="container" style="  padding-left: 8px;"> 
+           <div class="navbar-header">
+            <img class="thumbnail2"  src={{icon}} width="50" height="50"  style="   border-radius: 50%;" >
+               
+            <div style="opacity:0" > .sddsafsdas </div> 
+
+           </div>
+           
+            <div class="navbar-header">
+                <a class="navbar-brand" style="color:cornsilk; font-size: 30px; "  id="thik" href="/"> The Indian Utopia</a>
+            </div>
+
+            <div class="navbar-header" style="padding-top:10px">
+                
+                <form action="search">
+                    <input type="text" name="search">
+                    <input type="submit" class="form-group" value="Search" name="content"> 
+                </form>
+            </div>
+
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right"  style="padding-right:  10px ; ">
+                    
+
+                    <button class="btn btn-lg btn-outline-secondary" style="padding-right:  10px ; "><a href="/">Home</a></button>
+                
+                    <button class="btn btn-lg btn-outline-secondary"><a href="/campgrounds-index">Articles</a></button>
+                    <button class="btn btn-lg btn-outline-secondary"><a href="/aboutus">About us</a></button>
+                
+
+                    
+                    {% if username == None %}
+                    <button class="btn btn-lg btn-outline-secondary"><a href="/login">Login</a></button>
+                    <button class="btn btn-lg btn-success"><li><a href="/register">Sign Up</a></li></button>
+                    {% else %}
+                    <button class="btn btn-lg btn-outline-secondary"><a href="/logout">Logout</a></button>
+                    <button class="btn btn-lg btn-outline-secondary"><a href="/userdetails">User</a></button>
+                    
+                    {% endif %}
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- <div class="container">
+       <% if(error && error.length > 0) { %>
+         <div class="alert alert-danger"><p><%=error %></p></div>
+       <% } %>
+       
+       <% if(success && success.length > 0) { %>
+         <div class="alert alert-success"><p><%= success %></p></div>
+       <% } %>
+    </div> -->
+    <div class="container">
+        {% block content %}{% endblock %}   
+        </div>
+    </body>
+</html>
