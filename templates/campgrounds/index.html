@@ -19,11 +19,19 @@
          </div>
      </header>
      <style>
+
+        .thumbnail {
+            max-width:80% ;
+            
+  position: relative;           
+            margin: auto;
+ 
+
+        }
         .thumbnail:hover {
             position:relative;
-            top:-25px;
-            left:-35px;
-            width:500px;
+          
+            max-width:100% ;
             height:auto;
             display:block;
             z-index:999;
@@ -33,8 +41,8 @@
      <div class="row text-center" style="display:flex; flex-wrap: wrap;">
         {% for campground in campgrounds %}
             <div class="col-md-4 col-sm-6" >
-                <div class="thumbnail" >
-                  <img  class="thumbnail"   src= {{campground.imgurl}}>
+                <div class="thumbnail"  >
+                  <img src= {{campground.imgurl}}>
                    <div class="caption">
                        <h4> {{ campground.title }} </h4>
                    </div>
